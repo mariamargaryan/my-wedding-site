@@ -30,26 +30,24 @@
         margin: 2rem auto;
         padding: 1rem;
       }
+      .centered-section {
+        /* max-width: 800px; */
+        /*  margin: 2rem auto;This centers the section horizontally */
+        display: flex;
+        justify-content: center; /* Centers content horizontally within the section */
+        align-items: center; /* Centers content vertically within the section */
+         /* height: 100vh;Makes the section take the full height of the viewport */
+      }
       .image-block {
         text-align: center;
         margin-bottom: 2rem;
       }
       .image-block img {
-        width: 90%;
-        border-radius: 1rem;
+        
+        width: 70%;
+        border-radius: 3rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
-      /* body {
-        font-family: "Arial", sans-serif;
-        background: #f5f5f5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-        background: linear-gradient(45deg, #f9e4b7, #f0f0f0);
-      } */
 
       .countdown-container {
         text-align: center;
@@ -102,11 +100,11 @@
   <body>
     <header>
       <h1>Գոռ և Մանե</h1>
-      <p>Հրավիրատոմս</p>
+      <p>Հրավիրում ենք Ձեզ մեր կողքին լինելու՝ մեր կյանքի կարևորագույն օրը։</p>
       <p>Օգոստոսի 25, 2025</p>
     </header>
     <div class="countdown-container">
-      <h3>Մնացած ժամանակը մինչև մեր հարսանիքը</h3>
+      <h3>Մեր մեծ օրվա սկբին մնաց․․․</h3>
       <div class="countdown-unit">
         <span class="countdown-number" id="days">00</span> ։
         <span class="countdown-number" id="hours">00</span> ։
@@ -153,20 +151,25 @@
       <div class="image-block">
         <img src="IMG_0019.JPG" alt="Mane and Gor 1" />
       </div>
-      <h2>Ընկերներ և Բարեկամներ</h2>
-      <p>
-        Ժամանակն է մի լավ ուրախանալու,<br />
-        Սեր երգելու, պար բռնելու, <br />
-        Եվ մեր կյանքի նոր էջը բացելու՝ ձեզ հետ միասին։<br /><br />
-        Մենք՝ Մանեն և Գոռը, սիրով հրավիրում ենք ձեզ մեր կյանքի ամենահետաքրքիր
-        երեկոյին։<br />
-        Եկե՛ք ժպիտներով, պարելու տրամադրությամբ ու բաց սրտով։
-      </p>
+      <div class="centered-section">
+        <h2>Ընկերներ և Բարեկամներ</h2>
+      </div>
+      <div class="centered-section">
+        <p>
+          Ժամանակն է մի լավ ուրախանալու,<br />
+          Սեր երգելու, պար բռնելու, <br />
+          Եվ մեր կյանքի նոր էջը բացելու՝ ձեզ հետ միասին։<br /><br />
+          Մենք՝ Մանեն և Գոռը, սիրով հրավիրում ենք ձեզ մեր կյանքի ամենահետաքրքիր
+          երեկոյին։<br />
+          Եկե՛ք ժպիտներով, պարելու տրամադրությամբ ու բաց սրտով։
+        </p>
+      </div>
+      </div>
     </section>
 
     <section>
       <div class="image-block">
-        <img src="IMG_0071.JPG" alt="Mane and Gor 2" />
+        <img src="nkar.jpg" alt="Mane and Gor 2" />
       </div>
       <h2>Մանրամասներ</h2>
       <p>
