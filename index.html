@@ -15,7 +15,7 @@
       header {
         background: #e1cfc1;
         text-align: center;
-        padding: 3rem 1rem;
+        padding-top: 3rem;
       }
       header h1 {
         font-size: 2.5rem;
@@ -28,7 +28,7 @@
       section {
         max-width: 800px;
         margin: 2rem auto;
-        padding: 1rem;
+        /* padding: 1rem; */
         display: flex;
         justify-content: center; /* Centers content horizontally within the section */
         align-items: center; /* Centers content vertically within the section */
@@ -43,15 +43,15 @@
         justify-content: center; /* Centers content horizontally within the section */
         align-items: center; /* Centers content vertically within the section */
          /* height: 100vh;Makes the section take the full height of the viewport */
-         flex-direction: column;
+        flex-direction: column;
       }
       .image-block {
         text-align: center;
-        margin-bottom: 2rem;
+        /* margin-bottom: 2rem; */
       }
       .image-block img {
         
-        width: 70%;
+        width: 100%;
         border-radius: 3rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
@@ -61,13 +61,14 @@
       }
       .image-block1 img {
         
-        width: 70%;
+        width: 80%;
+
         border-radius: 3rem;
       }
       .countdown-container {
         text-align: center;
         background-color: rgba(255, 255, 255, 0.8);
-        padding: 50px;
+        padding: 40px;
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(10px);
@@ -110,13 +111,38 @@
           font-size: 2.5em;
         }
       }
+
+      .image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.image-container img {
+  width: 100%;
+  border-radius: 3rem;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
     </style>
   </head>
   <body>
     <header>
       <h1>Գոռ և Մանե</h1>
       <p>Հրավիրում ենք Ձեզ մեր կողքին լինելու՝ մեր կյանքի կարևորագույն օրը։</p>
-      <p>Օգոստոսի 25, 2025</p>
+      <p>Օգոստոս 25, 2025</p>
     </header>
     <div class="countdown-container">
       <h3>Մեր մեծ օրվա սկզբին մնաց․․․</h3>
@@ -169,17 +195,17 @@
         }
     </script>
     <section>
-      <div style="text-align:center; margin: 1rem 0;">
-        <button onclick="playMusic()" style="background:none; border:none; font-size:2rem; cursor:pointer;">
-      ❤️<br><span style='font-size:0.8rem; color:#666;'>Սեղմիր՝ երգը միացնելու համար</span>
-      </button>
-      </div>
-      <audio id="bg-music" loop>
-        <source src="erg.mp3" type="audio/mpeg">
-        Ձեր դիտարկիչը չի աջակցում ձայն նվագարկիչին։
-      </audio>
-      <div class="image-block">
-        <img src="IMG_0019.JPG" alt="Mane and Gor 1" />
+      <div class="image-container">
+        <img src="IMG_0019.JPG" alt="Mane and Gor" />
+        <div style="text-align:center; margin: 1rem 0;" class="overlay-text">
+          <button onclick="playMusic()" style="background:none; border:none; font-size:2rem; cursor:pointer;">
+        ❤️<br><span style='font-size:0.8rem; color:#666;'>Սեղմիր՝ երգը միացնելու համար</span>
+        </button>
+        </div>
+        <audio id="bg-music" loop>
+          <source src="erg.mp3" type="audio/mpeg">
+          Ձեր դիտարկիչը չի աջակցում ձայն նվագարկիչին։
+        </audio>
       </div>
       <div class="centered-section">
         <h2>Ընկերներ և Բարեկամներ</h2>
@@ -205,16 +231,16 @@
     </section>
 
     <section>
-      <div class="image-block">
-        <img src="IMG_0073.JPG" alt="Mane and Gor 3" />
+      <div class="image-container">
+        <img src="IMG_0041.JPG" alt="Mane and Gor 3" />
       </div>
     </section>
     <section>
       <h3>Մանրամասներ</h3>
       <p>
         📅 Օգոստոսի 25, 2025<br>
-        🕓 Եկեղեցի՝ Սուրբ Գայանե Եկեղեցի, Էջմիածին, 16:00<br>
-        🏛️ Հարսանյաց սրահ՝ Լիաննա Գարդեն Հոլ, Փարաքար, Երիտասարդական փ․ 34, 17:30
+        🏛️ Եկեղեցի՝ Էջմիածին, Սուրբ Գայանե, 16:00<br>
+        🕓 Հարսանյաց սրահ՝ Լիաննա Գարդեն Հոլլ, Փարաքար, Երիտասարդական փ․ 34, 17:30
       </p>
       <h3>Եկեղեցի</h3>
       <iframe src="https://www.google.com/maps?q=Saint+Gayane+Church,+Vagharshapat,+Armenia&output=embed"></iframe>
