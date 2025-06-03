@@ -136,6 +136,51 @@
   color: #333;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+
+.form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #555;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
     </style>
   </head>
   <body>
@@ -189,10 +234,44 @@
       }, 1000);
 
       function playMusic() {
-        debugger
+        
         var audio = document.getElementById('bg-music');
           audio.play();
         }
+
+      async function Submit(e) {
+          // e.preventDefault();
+          debugger
+          const data = {
+            name: document.getElementById("name").value,
+            participation: document.getElementById("participation").value,
+            inFavor: document.getElementById("inFavor").value,
+            quantity: document.getElementById("quantity").value
+          };
+          console.log(data)
+        
+            try {
+              const response = await fetch("https://script.google.com/macros/s/AKfycbwPmsATAR5ycWJNvQZfVNUrj7m9-TvJfxnqG3XPr6VIsXCpRDnWG92YbRBWV3Jnta4Wgw/exec", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                  "Content-Type": "application/json"
+                }
+              });
+      
+              if (response.ok) {
+                alert("Ձևը հաջողությամբ ուղարկվեց։");
+                document.getElementById("dataForm").reset();
+              } else {
+                alert("Սխալ տեղի ունեցավ։ Խնդրում ենք կրկին փորձ  ել։");
+              }
+            } catch (error) {
+              console.error(error);
+              alert("Ցանցային սխալ։ Խնդրում ենք ստուգել ձեր կապը։");
+            }
+          
+        }
+
     </script>
     <section>
       <div class="image-container">
@@ -249,7 +328,29 @@
     <section>
       <h3>📩 Հաստատեք Ձեր Ներկայությունը</h3>
       <p>Խնդրում ենք պատասխան նամակով հաստատել ձեր ներկայությունը մինչև օգոստոսի 10-ը ❤️</p>
+        <div class="form-container">
+          <h2>Մասնակցության Ձևաթուղթ</h2>
+          <form id="dataForm">
+            <label for="name">Անուն Ազգանուն</label>
+            <input type="text" id="name" name="name" required>
+      
+            <label for="participation">Մասնակցություն</label>
+            <input type="text" id="participation" name="participation" required>
+      
+            <label for="inFavor">Կողմ</label>
+            <select id="inFavor" name="inFavor" required>
+              <option value="">Ընտրեք</option>
+              <option value="Այո">Այո</option>
+              <option value="Ոչ">Ոչ</option>
+            </select>
+      
+            <label for="quantity">Քանակ</label>
+            <input type="number" id="quantity" name="quantity" required min="1">
+      
+            <button type="button" onclick="Submit()">Ուղարկել</button>
+          </form>
+        </div>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhk8OX7H3nQTF55GwOcNv--YsUOpInvW4JbhOiPtdFzQq_mg/viewform?embedded=true" width="640" height="948" frameborder="0" marginheight="0" marginwidth="0">Բեռնում…</iframe>
     </section>
   </body>
-
 </html>
