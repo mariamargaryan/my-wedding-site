@@ -62,8 +62,8 @@
       }
       .image-block1 img {
         
-        width: 80%;
-
+        width: 70%;
+        height: 90%;
         border-radius: 12px;
       }
       .countdown-container {
@@ -181,6 +181,24 @@
     button:hover {
       background-color: #45a049;
     }
+
+    .iframe-container {
+        position: relative;
+        width: 100%; /* Adjust to the desired width */
+        height: 500px; /* Adjust this to control the visible area */
+        overflow: hidden; /* Hide anything beyond the container */
+    }
+
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Set iframe height to container size */
+    }
+    .mcWRN {
+      overflow: hidden;
+    }
     </style>
   </head>
   <body>
@@ -271,7 +289,31 @@
             }
           
         }
+        document.getElementById("myForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch("https://formspree.io/f/mvgrojeb", {
+    method: "POST",
+    body: data
+  })
+  .then(response => response.json())
+  .then(result => {
+    debugger
+    if (result.success === "true") {
+      document.getElementById("successMessage").style.display = "block";
+      form.reset();
+    } else {
+      alert("❌ Սխալ տեղի ունեցավ։");
+    }
+  })
+  .catch(error => {
+    console.error(error);
+    alert("Ցանցային սխալ։");
+  });
+});
     </script>
     <section>
       <div class="image-container">
@@ -299,8 +341,9 @@
   </div>
 
     <section>
+      <h2>Ժամանակացույց</h2>
       <div class="image-block1">
-        <img src="nkar1.jpg" alt="Mane and Gor 2" />
+        <img src="photo_20.jpg" alt="Mane and Gor 2" />
       </div>
     </section>
 
@@ -310,12 +353,7 @@
       </div>
     </section>
     <section>
-      <h3>Մանրամասներ</h3>
-      <p style="text-align: center;">
-        📅 Օգոստոսի 25, 2025<br>
-        🏛️ Եկեղեցի՝ Էջմիածին, Սուրբ Գայանե, 16:00<br>
-        🕓 Հարսանյաց սրահ՝ Լիաննա Գարդեն Հոլլ, Փարաքար, Երիտասարդական փ․ 34, 17:30
-      </p>
+      <h2>Ինչպես հասնել</h2>
       <h3>Եկեղեցի</h3>
       <iframe src="https://www.google.com/maps?q=Saint+Gayane+Church,+Vagharshapat,+Armenia&output=embed"></iframe>
       <h3>Հարսանյաց սրահ</h3>
@@ -350,7 +388,10 @@
             <button type="button" onclick="Submit()">Ուղարկել</button>
           </form>
         </div> -->
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhk8OX7H3nQTF55GwOcNv--YsUOpInvW4JbhOiPtdFzQq_mg/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Բեռնում…</iframe>
+        <div class="iframe-container">
+
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhk8OX7H3nQTF55GwOcNv--YsUOpInvW4JbhOiPtdFzQq_mg/viewform?embedded=true" width="100%" height="calc(100% - 100px)"  style="border: none; overflow: hidden">Բեռնում…</iframe>
+        </div>
     </section>
   </body>
 </html>
